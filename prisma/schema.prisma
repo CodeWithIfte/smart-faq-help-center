@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id                 String    @id
+  shop               String
+  state              String
+  isOnline           Boolean   @default(false)
+  scope              String?
+  expires            DateTime?
+  accessToken        String
+  userId             BigInt?
+  firstName          String?
+  lastName           String?
+  email              String?
+  accountOwner       Boolean   @default(false)
+  locale             String?
+  collaborator       Boolean?  @default(false)
+  emailVerified      Boolean?  @default(false)
+  refreshToken       String?
+  refreshTokenExpires DateTime?
+}
+
+model Category {
+  id       String @id @default(cuid())
+  name     String
+  position Int
+  shop     String
+
+  faqs Faq[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([shop])
+  @@index([shop, position])
+}
+
+model Faq {
+  id       String  @id @default(cuid())
+  question String
+  answer   String
+  position Int
+  status   Boolean @default(true)
+  shop     String
+
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([shop])
+  @@index([shop, status])
+  @@index([shop, position])
+  @@index([shop, categoryId])
+}
+
+model Setting {
+  id                String  @id @default(cuid())
+  shop              String  @unique
+  searchEnabled     Boolean @default(true)
+  widgetPosition    String  @default("bottom-right")
+  widgetTheme       String  @default("light")
+  displayCategories Boolean @default(true)
+  faqOrder          String  @default("position")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([shop])
+}
