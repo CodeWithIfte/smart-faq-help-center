@@ -1,0 +1,81 @@
+{
+  "blocks": {
+    "smart_faq": {
+      "name": "Smart FAQ",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "accordion": "Accordion",
+            "list": "List"
+          }
+        },
+        "show_search": {
+          "label": "Enable search bar"
+        },
+        "first_item_open": {
+          "label": "Open first item by default"
+        },
+        "heading_color": {
+          "label": "Heading color"
+        },
+        "accent_color": {
+          "label": "Accent color"
+        },
+        "heading_font_size": {
+          "label": "Heading size"
+        },
+        "question_font_size": {
+          "label": "Question size"
+        },
+        "question_gap": {
+          "label": "Spacing between items"
+        }
+      }
+    },
+    "smart_faq_chat_widget": {
+      "name": "Smart FAQ Chat Widget",
+      "settings": {
+        "trigger_text": {
+          "label": "Trigger button text"
+        },
+        "heading": {
+          "label": "Panel heading"
+        },
+        "subheading": {
+          "label": "Panel subheading"
+        },
+        "show_search": {
+          "label": "Enable search"
+        },
+        "show_suggested": {
+          "label": "Show suggested questions"
+        },
+        "suggested_label": {
+          "label": "Suggested questions label"
+        },
+        "show_contact": {
+          "label": "Show contact footer"
+        },
+        "contact_heading": {
+          "label": "Contact heading"
+        },
+        "contact_text": {
+          "label": "Contact button text"
+        },
+        "contact_link": {
+          "label": "Contact link"
+        },
+        "accent_color": {
+          "label": "Accent color"
+        }
+      }
+    },
+    "search": {
+      "placeholder": "Search FAQs..."
+    }
+  }
+}
